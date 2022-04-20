@@ -1,14 +1,14 @@
-#include "Convert.hpp"
+#include "Conversion.hpp"
 
 int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Wrong number" << std::endl;
+		std::cout << "Wrong input" << std::endl;
 		return (1);
 	}
-	Convert converter(argv[1]);
-	std::cout << converter;
+	Conversion conversion(argv[1]);
+	std::cout << conversion;
 
 	return (0);
 }

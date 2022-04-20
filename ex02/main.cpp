@@ -1,62 +1,19 @@
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#include "Base.hpp"
+#include <unistd.h>
 
-Base	*generate(void)
+int main()
 {
-	int type;
-	
-	type = rand() % 3;
-	switch (type)
-	{
-		case 0 : return (new A());
-		case 1 : return (new B());
-		case 2 : return (new C());
-	}
-	return (NULL);
-}
+	Base *p;
 
-void	identify( Base *p)
-{
-	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
-	else
-		std::cout << "Unknown" << std::endl;
-}
+	p = generate();
+	identify(p);
+	delete p;
 
-void	identify(Base &p)
-{
-	if (dynamic_cast<A*>(&p))
-		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B*>(&p))
-		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C*>(&p))
-		std::cout << "C" << std::endl;
-	else 
-		std::cout << "unknown" << std::endl;
-}
+	usleep(1000 * 1000);
 
-Base::~Base()
-{
-	return ;
-}
+	p = generate();
+	identify(*p);
+	delete p;
 
-int main(void)
-{
-	Base *new_;
-
-	std::srand(time(NULL));
-	new_ = generate();
-	identify(new_);
-	delete new_;
-	
-	new_ = generate();
-	identify(*new_);
-	delete new_;
-	
 	return (0);
 }

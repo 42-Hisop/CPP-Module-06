@@ -1,9 +1,9 @@
 CC= c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 
 SRCS= main.cpp \
-	  Convert.cpp \
+	  Conversion.cpp
 
-NAME= Convert
+NAME= Conversion
 
 OBJS= $(SRCS:.cpp=.o)
 
