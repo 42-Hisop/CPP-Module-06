@@ -1,22 +1,14 @@
 #include "Conversion.hpp"
 
-class	NonDisplay : public std::exception
+const char *Conversion::NonDisplay::what() const throw()
 {
-	public :
-		const char *what() const throw()
-		{
-			return "non display";
-		}
-};
+	return "non Display";
+}
 
-class	NonConvert : public std::exception
+const char *Conversion::NonConvert::what() const throw()
 {
-	public :
-		const char *what() const throw()
-		{
-			return "impossible";
-		}
-};
+	return "impossible";
+}
 
 Conversion::Conversion()
 {

@@ -4,18 +4,6 @@ Base::~Base()
 {
 }
 
-class A : public Base
-{
-};
-
-class B : public Base
-{
-};
-
-class C : public Base
-{
-};
-
 Base *generate(void)
 {
 	int r;
@@ -33,13 +21,12 @@ Base *generate(void)
 
 void	identify(Base *p)
 {
-	std::cout << "pointer" << std::endl;
 	if (dynamic_cast<A*>(p))
-		std::cout << "A" << std::endl;
+		std::cout << "p: A" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "B" << std::endl;
+		std::cout << "p: B" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "C" << std::endl;
+		std::cout << "p: C" << std::endl;
 	else
 		std::cout << "??" << std::endl;
 }
@@ -47,11 +34,10 @@ void	identify(Base *p)
 void	identify(Base &p)
 {
 	Base temp;
-	std::cout << "reference" << std::endl;
 	try
 	{
 		temp = dynamic_cast<A&>(p);
-		std::cout << "A" << std::endl;
+		std::cout << "p: A" << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -61,7 +47,7 @@ void	identify(Base &p)
 	try
 	{
 		temp = dynamic_cast<B&>(p);
-		std::cout << "B" << std::endl;
+		std::cout << "p: B" << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -71,7 +57,7 @@ void	identify(Base &p)
 	try
 	{
 		temp = dynamic_cast<C&>(p);
-		std::cout << "C" << std::endl;
+		std::cout << "p: C" << std::endl;
 	}
 	catch (std::exception &e)
 	{
